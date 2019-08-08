@@ -1,0 +1,25 @@
+{
+  "name": "type-graphql-serverless-offline-import-bug",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.31",
+    "@types/graphql": "^14.2.3",
+    "serverless": "^1.49.0",
+    "serverless-offline": "^5.10.1",
+    "serverless-webpack": "^5.3.1",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "apollo-server-lambda": "^2.8.1",
+    "aws-lambda": "^0.1.2",
+    "aws-sdk": "^2.505.0",
+    "graphql": "^14.4.2",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^0.17.4"
+  }
+}

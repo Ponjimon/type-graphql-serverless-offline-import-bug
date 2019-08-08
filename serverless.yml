@@ -1,0 +1,52 @@
+service:
+  name: type-graphql-serverless-offline-import-bug
+
+package:
+  individually: true
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  memorySize: 256
+  timeout: 10
+  stage: dev
+  region: us-east-1
+  environment:
+    NODE_ENV: ${env:NODE_ENV}
+    SERVICE: ${self:service.name}
+    STAGE: ${opt:stage, self:provider.stage}
+    OFFLINE_PORT: 4000
+
+custom:
+  serverless-offline:
+    port: ${self:provider.environment.OFFLINE_PORT}
+  webpack:
+    includeModules:
+      forceExclude:
+        - aws-sdk
+        - '@types/graphql'
+        - serverless
+    packagerOptions:
+      postInstallScripts:
+        - yarn autoclean --force
+
+functions:
+  graphql:
+    handler: src/index.handler
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true
+  graphqlBug:
+    handler: src/index.handlerBugged
+    events:
+      - http:
+          path: graphqlbug
+          method: post
+          cors: true
+
