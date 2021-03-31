@@ -15,7 +15,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "apollo-server-lambda": "^2.8.1",
+    "apollo-server-lambda": "^2.14.2",
     "aws-lambda": "^0.1.2",
     "aws-sdk": "^2.505.0",
     "graphql": "^14.4.2",
